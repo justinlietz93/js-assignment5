@@ -49,6 +49,12 @@ const strings = [
 	'"firstName":"Mace","lastName":"Windu","age":53,"occupation":"Jedi","homePlanet":"Haruun Kal"'
 ]
 
-const jedi = strings // append your code here
+const jedi = strings.reduce((acc, str) => {
+	const obj = JSON.parse(`{${str}}`)
+	if (obj.occupation === "Jedi") {
+		acc.push(obj)
+	}
+	return acc
+}, [])
 
 test("Problem 2", jedi)

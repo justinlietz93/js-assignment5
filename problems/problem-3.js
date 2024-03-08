@@ -29,6 +29,10 @@ const isEven = number => number % 2 === 0 // returns true if the number is even
 
 const numbers = [ -10, -5, 0, 5, 10, 8, -2 ]
 
-const numberStrings = numbers // append your array methods here
+const numberStrings = numbers.sort((a, b) => a - b).reduce((acc, number) => {
+	if (number <= 0) return acc
+	acc.push(`${number} is ${isEven(number) ? 'even' : 'odd'}`)
+	return acc
+}, [])
 
 test("Problem 3", numberStrings)
